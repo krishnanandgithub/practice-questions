@@ -223,3 +223,16 @@ const cumulativeSumsOf = function (arrays) {
 
 const listOfNumbers = [[1, 2, 3], [4, 5, 6]];
 console.log(cumulativeSumsOf(listOfNumbers));
+
+//---------------------------Q18-------------------------
+
+const reverseWords = function (words) {
+  return reversedStringsOf(words.split(' ')).join(' ');
+};
+
+const reversedWordsOf = function (strings) {
+  return strings.map(reverseWords);
+};
+
+const listOfWords = ["hello world", "goodbye moon"];
+console.log(reversedWordsOf(listOfWords));
