@@ -89,5 +89,14 @@ const doubleLettersOf = function (strings) {
   return strings.map(doubleLetter);
 };
 
-console.log(doubleLettersOf(strings1))
-console.log(doubleLettersOf(strings2))
+console.log(doubleLettersOf(strings1));
+console.log(doubleLettersOf(strings2));
+
+//---------------------------Q8-----------------------
+
+const negatedBooleansOf = function (booleans) {
+  return booleans.map(function (boolean) { return !boolean; });
+};
+
+const booleans = [true, false, false, true, true, false];
+console.log(negatedBooleansOf(booleans));
