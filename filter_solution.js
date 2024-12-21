@@ -147,3 +147,20 @@ const studentGrades = [
 ];
 
 console.log((filterHighGrades(studentGrades)));
+
+//----------------------------------Q9----------------------------------
+
+const isInStock = function (product) {
+  return product.inStock;
+};
+
+const filterInStockProducts = function (products) {
+  return products.filter(isInStock);
+};
+
+const products = [
+  { product: "apple", inStock: true },
+  { product: "banana", inStock: false }
+];
+
+console.log(filterInStockProducts(products));
