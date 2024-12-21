@@ -164,3 +164,36 @@ const products = [
 ];
 
 console.log(filterInStockProducts(products));
+
+//-----------------------------------Q10----------------------------------
+
+const sum = function (num1, num2) {
+  return num1 + num2;
+};
+
+const average = function (totalItems) {
+  return function (totalAverage, product) {
+    return sum(totalAverage, product.price / totalItems);
+  };
+};
+
+const isBelowAveragePrice = function (averagePrice) {
+  return function (product) {
+    return complement(isAbove(averagePrice))(product.price);
+  };
+
+};
+
+const filterBelowAveragePrice = function (products) {
+  const totalProducts = products.length;
+  const averagePrice = products.reduce(average(totalProducts), 0);
+  return products.filter(isBelowAveragePrice(averagePrice));
+};
+
+const productsBelowAveragePrice = [
+  { name: "item1", price: 10 },
+  { name: "item2", price: 20 },
+  { name: "item3", price: 5 }
+];
+
+console.log(filterBelowAveragePrice(productsBelowAveragePrice));
