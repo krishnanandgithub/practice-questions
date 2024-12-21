@@ -136,3 +136,16 @@ const splitWordsOf = function (strings) {
 
 const splitWords = ["hello world", "goodbye moon"];
 console.log(splitWordsOf(splitWords));
+
+//---------------------------Q12-------------------------
+
+const joinArray = function (array) {
+  return array.join('');
+};
+
+const joinedArraysOf = function (arrayOfArrays) {
+  return arrayOfArrays.map(joinArray);
+};
+
+const arrayOfArrays = [["a", "b"], ["c", "d"]];
+console.log(joinedArraysOf(arrayOfArrays));
