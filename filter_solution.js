@@ -34,3 +34,30 @@ const words2 = ["ram", "shyam", "ramn", "ramesh", "rohit anna"];
 
 console.log(filterLongWords(words1));
 console.log(filterLongWords(words2));
+
+//-------------------------------------Q3-------------------------------
+
+const isAbove = function (target) {
+  return function (number) {
+    return number > target;
+  };
+};
+
+const isAdult = function (person) {
+  return isAbove(18)(person.age);
+};
+
+const filterAdults = function (people) {
+  return people.filter(isAdult);
+};
+
+
+const adults = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 35 },
+  { name: "Aman", age: 56 },
+  { name: "Ajay", age: 16 },
+  { name: "Babalu", age: 18 },
+];
+
+console.log(filterAdults(adults));
