@@ -88,3 +88,22 @@ const filterNumbersGreaterThanTen = function (numbers) {
 const numbersGreaterThan10 = [11, 10, 9, 3, 4, 5, 21, 22, 33, 44, 12];
 
 console.log((filterNumbersGreaterThanTen(numbersGreaterThan10)));
+
+//-------------------------------Q6-----------------------------------
+
+const isALongBook = function (book) {
+  return isAbove(200)(book.pages);
+};
+
+const filterLongBooks = function (books) {
+  return books.filter(isALongBook);
+};
+
+const books = [
+  { title: "Book 1", pages: 150 },
+  { title: "Book 2", pages: 250 },
+  { title: "Book 3", pages: 200 },
+  { title: "Book 4", pages: 400 },
+];
+
+console.log(filterLongBooks(books));
