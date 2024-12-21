@@ -186,3 +186,22 @@ const reversedArraysOf = function (arrays) {
 
 const listOfLists = [[1, 2, 3], [4, 5, 6]];
 console.log(reversedArraysOf(listOfLists));
+
+//---------------------------Q16-------------------------
+
+const compliment = function (f) {
+  return function (...arg) {
+    return !f(...arg);
+  };
+};
+
+const stringWithoutVowels = function (string) {
+  return string.split('').filter(compliment(isAVowel)).join('');
+};
+
+const withoutVowelsOf = function (strings) {
+  return strings.map(stringWithoutVowels);
+};
+
+console.log(withoutVowelsOf(strings1))
+console.log(withoutVowelsOf(strings2))
