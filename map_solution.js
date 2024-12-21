@@ -123,3 +123,16 @@ const domainNamesOf = function (emails) {
 
 const emails = ["user1@gmail.com", "admin@yahoo.com"];
 console.log(domainNamesOf(emails));
+
+//---------------------------Q11-------------------------
+
+const getSplitWords = function (string) {
+  return string.split(' ');
+};
+
+const splitWordsOf = function (strings) {
+  return strings.map(getSplitWords);
+};
+
+const splitWords = ["hello world", "goodbye moon"];
+console.log(splitWordsOf(splitWords));
