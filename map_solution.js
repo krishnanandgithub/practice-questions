@@ -177,3 +177,12 @@ const countVowelsOf = function (strings) {
 
 console.log(countVowelsOf(strings1));
 console.log(countVowelsOf(strings2));
+
+//---------------------------Q15-------------------------
+
+const reversedArraysOf = function (arrays) {
+  return arrays.map(function (list) { return list.reverse(); });
+};
+
+const listOfLists = [[1, 2, 3], [4, 5, 6]];
+console.log(reversedArraysOf(listOfLists));
