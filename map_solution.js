@@ -82,7 +82,7 @@ console.log(reversedStringsOf(strings2));
 //---------------------------Q7-----------------------
 
 const doubleLetter = function (string) {
-  return string ? string[0] + string : '';
+  return string.split('').map(function (char) { return char + char; }).join('');
 };
 
 const doubleLettersOf = function (strings) {
