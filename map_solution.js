@@ -149,3 +149,12 @@ const joinedArraysOf = function (arrayOfArrays) {
 
 const arrayOfArrays = [["a", "b"], ["c", "d"]];
 console.log(joinedArraysOf(arrayOfArrays));
+
+//---------------------------Q13-------------------------
+
+const repeatedStringsOf = function (strings) {
+  return strings.map(function (string) { return string + string; });
+};
+
+console.log(repeatedStringsOf(strings1));
+console.log(repeatedStringsOf(strings2));
