@@ -274,3 +274,19 @@ const rangesOf = function (numbers) {
 };
 
 console.log(rangesOf(numbers));
+
+//-----------------------------Q21--------------------------------
+
+const getFirstLetterCaptilize = function (string) {
+  return string ? string[0].toUpperCase() + string.slice(1, string.length) : '';
+};
+
+const captilizedFirstLetter = function (longString) {
+  return longString.split(' ').map(getFirstLetterCaptilize);
+};
+
+const capitalizedFirstLettersOf = function (strings) {
+  return strings.map(captilizedFirstLetter);
+};
+
+console.log(capitalizedFirstLettersOf(listOfWords));
