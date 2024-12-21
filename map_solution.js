@@ -203,5 +203,23 @@ const withoutVowelsOf = function (strings) {
   return strings.map(stringWithoutVowels);
 };
 
-console.log(withoutVowelsOf(strings1))
-console.log(withoutVowelsOf(strings2))
+console.log(withoutVowelsOf(strings1));
+console.log(withoutVowelsOf(strings2));
+
+//---------------------------Q17-------------------------
+
+const runningSum = function (array, currentElement) {
+  const lastSum = array.length ? array.at(-1) : 0;
+  return [...array, currentElement + lastSum];
+};
+
+const cumulativeSums = function (array) {
+  return array.reduce(runningSum, []);
+};
+
+const cumulativeSumsOf = function (arrays) {
+  return arrays.map(cumulativeSums);
+};
+
+const listOfNumbers = [[1, 2, 3], [4, 5, 6]];
+console.log(cumulativeSumsOf(listOfNumbers));
