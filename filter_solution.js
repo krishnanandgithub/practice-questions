@@ -130,3 +130,20 @@ const profileUsers = [
 ];
 
 console.log(filterIncompleteProfiles(profileUsers));
+
+//------------------------------------Q8----------------------------------
+
+const isHighGrade = function (student) {
+  return isAbove(80)(student.grade);
+};
+
+const filterHighGrades = function (students) {
+  return students.filter(isHighGrade);
+};
+
+const studentGrades = [
+  { name: "John", grade: 75 },
+  { name: "Jane", grade: 85 }
+];
+
+console.log((filterHighGrades(studentGrades)));
