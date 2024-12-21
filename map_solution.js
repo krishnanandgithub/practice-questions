@@ -38,3 +38,15 @@ const uppercaseOf = function (strings) {
 
 console.log(uppercaseOf(strings));
 console.log(uppercaseOf(["hello", "world"]));
+
+//---------------------------Q4-----------------------
+
+const firstCharacter = function (string) {
+  return string[0];
+};
+
+const firstCharactersOf = function (strings) {
+  return strings.map(firstCharacter);
+};
+
+console.log(firstCharactersOf(strings));
