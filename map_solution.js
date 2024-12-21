@@ -254,3 +254,23 @@ const uniqueCharactersOf = function (strings) {
 
 console.log(uniqueCharactersOf(strings1));
 console.log(uniqueCharactersOf(strings2));
+
+//---------------------------Q20-------------------------
+
+const range = function (from, to, step) {
+  const numbers = [];
+  for (let num = from; num < to; num += step) {
+    numbers.push(num);
+  }
+  return numbers;
+};
+
+const ranges = function (number) {
+  return range(0, number, 1);
+};
+
+const rangesOf = function (numbers) {
+  return numbers.map(ranges);
+};
+
+console.log(rangesOf(numbers));
