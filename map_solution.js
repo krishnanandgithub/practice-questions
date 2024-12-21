@@ -78,3 +78,16 @@ const reversedStringsOf = function (strings) {
 
 console.log(reversedStringsOf(strings1));
 console.log(reversedStringsOf(strings2));
+
+//---------------------------Q7-----------------------
+
+const doubleLetter = function (string) {
+  return string[0] ? string[0] + string : '';
+};
+
+const doubleLettersOf = function (strings) {
+  return strings.map(doubleLetter);
+};
+
+console.log(doubleLettersOf(strings1))
+console.log(doubleLettersOf(strings2))
