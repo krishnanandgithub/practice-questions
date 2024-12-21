@@ -44,7 +44,7 @@ console.log(uppercaseOf(strings2));
 //---------------------------Q4-----------------------
 
 const firstCharacter = function (string) {
-  return string[0] ? string[0] : '';
+  return string ? string[0] : '';
 };
 
 const firstCharactersOf = function (strings) {
@@ -82,7 +82,7 @@ console.log(reversedStringsOf(strings2));
 //---------------------------Q7-----------------------
 
 const doubleLetter = function (string) {
-  return string[0] ? string[0] + string : '';
+  return string ? string[0] + string : '';
 };
 
 const doubleLettersOf = function (strings) {
@@ -100,3 +100,13 @@ const negatedBooleansOf = function (booleans) {
 
 const booleans = [true, false, false, true, true, false];
 console.log(negatedBooleansOf(booleans));
+
+//---------------------------Q9-------------------------
+
+const charCodesOf = function (strings) {
+  return strings.map(function (string) { return string.charCodeAt(0); });
+};
+
+const chars = ['a', 'b', 'c', 'm', 'n', 'y', 'z'];
+console.log(charCodesOf(chars));
+console.log(charCodesOf(strings1));
