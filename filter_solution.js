@@ -78,3 +78,13 @@ const users = [
 ];
 
 console.log(filterActiveUsers(users));
+
+//---------------------------------Q5--------------------------------
+
+const filterNumbersGreaterThanTen = function (numbers) {
+  return numbers.filter(isAbove(10));
+};
+
+const numbersGreaterThan10 = [11, 10, 9, 3, 4, 5, 21, 22, 33, 44, 12];
+
+console.log((filterNumbersGreaterThanTen(numbersGreaterThan10)));

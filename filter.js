@@ -8,7 +8,7 @@ const filterLongWords = function (words) { };
 const filterAdults = function (people) { };
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
-const filterActiveUsers = function (users) { };
+const _filterActiveUsers = function (users) { };
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 const filterNumbersGreaterThanTen = function (numbers) { };
