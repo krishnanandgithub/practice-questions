@@ -107,3 +107,26 @@ const books = [
 ];
 
 console.log(filterLongBooks(books));
+
+//--------------------------------Q7-------------------------------------
+
+const isProfileComplete = function (user) {
+  return user.profileComplete;
+};
+
+const complement = function (f) {
+  return function (...args) {
+    return !f(...args);
+  };
+};
+
+const filterIncompleteProfiles = function (users) {
+  return users.filter(complement(isProfileComplete));
+};
+
+const profileUsers = [
+  { username: "alice", profileComplete: true },
+  { username: "bob", profileComplete: false }
+];
+
+console.log(filterIncompleteProfiles(profileUsers));
