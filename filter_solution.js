@@ -61,3 +61,20 @@ const adults = [
 ];
 
 console.log(filterAdults(adults));
+
+//--------------------------------Q4----------------------------------
+
+const isActive = function (person) {
+  return person.active;
+};
+
+const filterActiveUsers = function (users) {
+  return users.filter(isActive);
+};
+
+const users = [
+  { username: "alice", active: true },
+  { username: "bob", active: false }
+];
+
+console.log(filterActiveUsers(users));
