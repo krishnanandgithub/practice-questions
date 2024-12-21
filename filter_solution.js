@@ -165,7 +165,7 @@ const products = [
 
 console.log(filterInStockProducts(products));
 
-//-----------------------------------Q10----------------------------------
+//-----------------------------------Q11----------------------------------
 
 const sum = function (num1, num2) {
   return num1 + num2;
