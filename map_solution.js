@@ -8,7 +8,7 @@ const squaresOf = function (numbers) {
   return numbers.map(sqrt);
 };
 
-const numbers = [1, 2, 3, 4, 5, 6];
+const numbers = [0, 1, 2, 3, 4, 5, 6];
 
 console.log(squaresOf(numbers));
 
@@ -22,7 +22,7 @@ const lengthsOf = function (strings) {
   return strings.map(lengthOfString);
 };
 
-const strings = ["apple", "banana", "kiwi"];
+const strings = ["", "apple", "banana", "kiwi"];
 
 console.log(lengthsOf(strings));
 
@@ -42,7 +42,7 @@ console.log(uppercaseOf(["hello", "world"]));
 //---------------------------Q4-----------------------
 
 const firstCharacter = function (string) {
-  return string[0];
+  return string[0] ? string[0] : '';
 };
 
 const firstCharactersOf = function (strings) {
@@ -50,3 +50,16 @@ const firstCharactersOf = function (strings) {
 };
 
 console.log(firstCharactersOf(strings));
+
+//---------------------------Q5-----------------------
+
+const truthValue = function (value) {
+  return !!value;
+};
+
+const truthValuesOf = function (numbers) {
+  return numbers.map(truthValue);
+};
+
+console.log(truthValuesOf(strings));
+console.log(truthValuesOf(numbers));
