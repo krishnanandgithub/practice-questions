@@ -158,3 +158,22 @@ const repeatedStringsOf = function (strings) {
 
 console.log(repeatedStringsOf(strings1));
 console.log(repeatedStringsOf(strings2));
+
+//---------------------------Q14-------------------------
+
+const VOWELS = 'aeiou';
+
+const isAVowel = function (char) {
+  return VOWELS.includes(char.toLowerCase());
+};
+
+const countVowels = function (string) {
+  return string.split('').filter(isAVowel).length;
+};
+
+const countVowelsOf = function (strings) {
+  return strings.map(countVowels);
+};
+
+console.log(countVowelsOf(strings1));
+console.log(countVowelsOf(strings2));
