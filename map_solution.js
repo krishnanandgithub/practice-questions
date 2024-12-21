@@ -22,9 +22,9 @@ const lengthsOf = function (strings) {
   return strings.map(lengthOfString);
 };
 
-const strings = ["", "apple", "banana", "kiwi"];
+const strings1 = ["", "apple", "banana", "kiwi"];
 
-console.log(lengthsOf(strings));
+console.log(lengthsOf(strings1));
 
 //---------------------------Q3---------------------
 
@@ -36,8 +36,10 @@ const uppercaseOf = function (strings) {
   return strings.map(upperCase);
 };
 
-console.log(uppercaseOf(strings));
-console.log(uppercaseOf(["hello", "world"]));
+const strings2 = ["hello", "world"];
+
+console.log(uppercaseOf(strings1));
+console.log(uppercaseOf(strings2));
 
 //---------------------------Q4-----------------------
 
@@ -49,7 +51,7 @@ const firstCharactersOf = function (strings) {
   return strings.map(firstCharacter);
 };
 
-console.log(firstCharactersOf(strings));
+console.log(firstCharactersOf(strings1));
 
 //---------------------------Q5-----------------------
 
@@ -61,5 +63,18 @@ const truthValuesOf = function (numbers) {
   return numbers.map(truthValue);
 };
 
-console.log(truthValuesOf(strings));
+console.log(truthValuesOf(strings1));
 console.log(truthValuesOf(numbers));
+
+//---------------------------Q6-----------------------
+
+const reverseString = function (string) {
+  return string.split('').reverse().join('');
+};
+
+const reversedStringsOf = function (strings) {
+  return strings.map(reverseString);
+};
+
+console.log(reversedStringsOf(strings1));
+console.log(reversedStringsOf(strings2));
