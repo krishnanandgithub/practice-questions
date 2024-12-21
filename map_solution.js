@@ -110,3 +110,16 @@ const charCodesOf = function (strings) {
 const chars = ['a', 'b', 'c', 'm', 'n', 'y', 'z'];
 console.log(charCodesOf(chars));
 console.log(charCodesOf(strings1));
+
+//---------------------------Q10-------------------------
+
+const getDomain = function (email) {
+  return email.slice(email.indexOf('@'), email.length);
+};
+
+const domainNamesOf = function (emails) {
+  return emails.map(getDomain);
+};
+
+const emails = ["user1@gmail.com", "admin@yahoo.com"];
+console.log(domainNamesOf(emails));
