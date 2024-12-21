@@ -236,3 +236,21 @@ const reversedWordsOf = function (strings) {
 
 const listOfWords = ["hello world", "goodbye moon"];
 console.log(reversedWordsOf(listOfWords));
+
+//---------------------------Q19-------------------------
+
+const getUniqueChars = function (uniqueChars, currentChar) {
+  const isCharPresent = uniqueChars.includes(currentChar);
+  return isCharPresent ? uniqueChars : uniqueChars + currentChar;
+};
+
+const uniqueChars = function (string) {
+  return string.split('').reduce(getUniqueChars, '');
+};
+
+const uniqueCharactersOf = function (strings) {
+  return strings.map(uniqueChars);
+};
+
+console.log(uniqueCharactersOf(strings1));
+console.log(uniqueCharactersOf(strings2));
