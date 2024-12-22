@@ -1,5 +1,21 @@
 const VOWELS = 'aeiou';
 
+const sum = function (num1, num2) {
+  return num1 + num2;
+};
+
+const add = function (numbers) {
+  return numbers.reduce(sum, 0);
+};
+
+const multiply = function (num1, num2) {
+  return num1 * num2;
+};
+
+const product = function (numbers) {
+  return numbers.reduce(multiply, 1);
+};
+
 const sqrt = function (number) {
   return number * number;
 };
