@@ -130,3 +130,18 @@ const firstLettersOfNames = function (objects) {
 };
 
 console.log(firstLettersOfNames(nameObjects));
+
+//---------------------------Q29------------------------------
+
+const areaOfRectangles = function (rectangle) {
+  const width = extractProperty('width')(rectangle);
+  const height = extractProperty('height')(rectangle);
+  return width * height;
+};
+
+const calculateAreas = function (rectangles) {
+  return rectangles.map(areaOfRectangles);
+};
+
+const rectanglesObject = [{ width: 2, height: 3 }, { width: 4, height: 5 }];
+console.log(calculateAreas(rectanglesObject));
