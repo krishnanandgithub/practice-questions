@@ -343,3 +343,14 @@ const normalizeScoreObject = [
 ];
 
 console.log(normalizeScores(normalizeScoreObject));
+
+//---------------------------Q42------------------------------
+
+const percentageContributions = function (numbers) {
+  const totalScore = add(numbers);
+  return numbers.map(function (score) { return (score * 100) / totalScore; });
+};
+
+const scores = [10, 20, 30];
+
+console.log(percentageContributions(scores));
