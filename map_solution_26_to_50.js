@@ -259,3 +259,16 @@ const scoreObject = [
 ];
 
 console.log(mathScores(scoreObject));
+
+//---------------------------Q35------------------------------
+
+const extractCoordinates = function (objects) {
+  return objects.map(extract('x', 'y'));
+};
+
+const coordinatesObject = [
+  { x: 1, y: 2 },
+  { x: 3, y: 4 }
+];
+
+console.log(extractCoordinates(coordinatesObject));
