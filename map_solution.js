@@ -337,5 +337,20 @@ const sortedLettersOf = function (strings) {
   return strings.map(sortedString);
 };
 
-console.log(sortedLettersOf(strings1))
-console.log(sortedLettersOf(strings2))
+console.log(sortedLettersOf(strings1));
+console.log(sortedLettersOf(strings2));
+
+//-------------------------------------Q25----------------------------------
+
+const wrappedStringWith = function (braces) {
+  return function (string) {
+    return braces[0] + string + braces[1];
+  };
+};
+
+const wrappedStringsOf = function (strings) {
+  return strings.map(wrappedStringWith('[]'));
+};
+
+console.log(wrappedStringsOf(strings1));
+console.log(wrappedStringsOf(strings2));
