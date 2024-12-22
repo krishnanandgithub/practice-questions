@@ -312,3 +312,17 @@ const wordLengthsOf = function (strings) {
 };
 
 console.log(wordLengthsOf(listOfWords));
+
+//-------------------------------------Q23----------------------------------
+
+const flatArray = function (array) {
+  return array.flat();
+};
+
+const flattenedArraysOf = function (arrays) {
+  return arrays.map(flatArray);
+};
+
+const nestedArray = [[1, [2, 3]], [4, [5, 6]]];
+
+console.log(flattenedArraysOf(nestedArray));
