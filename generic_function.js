@@ -122,3 +122,15 @@ const isAbove = function (target) {
 const isAdult = function (person) {
   return isAbove(18)(person.age);
 };
+
+const extractProperties = function (object) {
+  return function (key) {
+    return object[key];
+  };
+};
+
+const extract = function (...properties) {
+  return function (object) {
+    return properties.map(extractProperties(object));
+  };
+};

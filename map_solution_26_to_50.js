@@ -125,8 +125,6 @@ const isAdult = function (person) {
   return isAbove(18)(person.age);
 };
 
-//-----------------------Q26--------------------------
-
 const extractProperties = function (object) {
   return function (key) {
     return object[key];
@@ -138,6 +136,8 @@ const extract = function (...properties) {
     return properties.map(extractProperties(object));
   };
 };
+
+//-----------------------Q26--------------------------
 
 const extractNames = function (objects) {
   return objects.flatMap(extract('name'));
@@ -230,7 +230,6 @@ console.log(isAdults(adultObjuct));
 
 const getAbbreviation = function (names) {
   const [cityName, country] = names;
-  console.log(cityName, country);
   const cityAbbreviation = cityName.split(' ').map(firstCharacter).join('');
 
   return cityAbbreviation + ' ' + country;
@@ -247,7 +246,7 @@ const abbreviationObject = [
 
 console.log(abbreviations(abbreviationObject));
 
-//---------------------------Q34------------------------------
+//---------------------------Q35------------------------------
 
 const mathScores = function (objects) {
   return objects.flatMap(extract('scores')).flatMap(extract('math'));
@@ -260,7 +259,7 @@ const scoreObject = [
 
 console.log(mathScores(scoreObject));
 
-//---------------------------Q35------------------------------
+//---------------------------Q36------------------------------
 
 const extractCoordinates = function (objects) {
   return objects.map(extract('x', 'y'));
@@ -272,3 +271,29 @@ const coordinatesObject = [
 ];
 
 console.log(extractCoordinates(coordinatesObject));
+
+//---------------------------Q37------------------------------
+
+const addName = function (nameAndAge) {
+  const [firstName, lastName, age] = nameAndAge;
+  return [firstName + ' ' + lastName, age];
+};
+
+const fullNameAndAge = function (objects) {
+  return objects.map(extract('firstName', 'lastName', 'age')).map(addName);
+};
+
+const fullNameAgeObject = [
+  { firstName: "Alice", lastName: "Smith", age: 25 },
+  { firstName: "Bob", lastName: "Brown", age: 30 }
+];
+
+console.log(fullNameAndAge(fullNameAgeObject));
+
+//---------------------------Q38------------------------------
+
+const extractScores = function (objects) {
+  return objects.flatMap(extract('scores')).map(extract('math', 'english'));
+};
+
+console.log(extractScores(scoreObject));
