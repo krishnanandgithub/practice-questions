@@ -290,3 +290,15 @@ const capitalizedFirstLettersOf = function (strings) {
 };
 
 console.log(capitalizedFirstLettersOf(listOfWords));
+
+//-------------------------------------Q22----------------------------------
+
+const wordLengths = function (longString) {
+  return longString.split(' ').map(lengthOfString);
+};
+
+const wordLengthsOf = function (strings) {
+  return strings.map(wordLengths);
+};
+
+console.log(wordLengthsOf(listOfWords));
