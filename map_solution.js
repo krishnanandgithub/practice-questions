@@ -81,8 +81,14 @@ console.log(reversedStringsOf(strings2));
 
 //---------------------------Q7-----------------------
 
+const repeat = function (times) {
+  return function (string) {
+    return string.repeat(times);
+  };
+};
+
 const doubleLetter = function (string) {
-  return string.split('').map(function (char) { return char + char; }).join('');
+  return string.split('').map(repeat(2)).join('');
 };
 
 const doubleLettersOf = function (strings) {
@@ -153,7 +159,7 @@ console.log(joinedArraysOf(arrayOfArrays));
 //---------------------------Q13-------------------------
 
 const repeatedStringsOf = function (strings) {
-  return strings.map(function (string) { return string + string; });
+  return strings.map(repeat(2));
 };
 
 console.log(repeatedStringsOf(strings1));
@@ -167,12 +173,12 @@ const isAVowel = function (char) {
   return VOWELS.includes(char.toLowerCase());
 };
 
-const countVowels = function (string) {
-  return string.split('').filter(isAVowel).length;
+const onlyVowels = function (string) {
+  return string.split('').filter(isAVowel).join('');
 };
 
 const countVowelsOf = function (strings) {
-  return strings.map(countVowels);
+  return strings.map(onlyVowels).map(lengthOfString);
 };
 
 console.log(countVowelsOf(strings1));
@@ -180,8 +186,12 @@ console.log(countVowelsOf(strings2));
 
 //---------------------------Q15-------------------------
 
+const reverseArray = function (array) {
+  return array.reverse();
+};
+
 const reversedArraysOf = function (arrays) {
-  return arrays.map(function (list) { return list.reverse(); });
+  return arrays.map(reverseArray);
 };
 
 const listOfLists = [[1, 2, 3], [4, 5, 6]];
@@ -195,12 +205,12 @@ const compliment = function (f) {
   };
 };
 
-const stringWithoutVowels = function (string) {
+const onlyConsonents = function (string) {
   return string.split('').filter(compliment(isAVowel)).join('');
 };
 
 const withoutVowelsOf = function (strings) {
-  return strings.map(stringWithoutVowels);
+  return strings.map(onlyConsonents);
 };
 
 console.log(withoutVowelsOf(strings1));
@@ -213,12 +223,12 @@ const runningSum = function (array, currentElement) {
   return [...array, currentElement + lastSum];
 };
 
-const cumulativeSums = function (array) {
+const cumulativeSum = function (array) {
   return array.reduce(runningSum, []);
 };
 
 const cumulativeSumsOf = function (arrays) {
-  return arrays.map(cumulativeSums);
+  return arrays.map(cumulativeSum);
 };
 
 const listOfNumbers = [[1, 2, 3], [4, 5, 6]];
@@ -239,17 +249,17 @@ console.log(reversedWordsOf(listOfWords));
 
 //---------------------------Q19-------------------------
 
-const getUniqueChars = function (uniqueChars, currentChar) {
+const uniqueChars = function (uniqueChars, currentChar) {
   const isCharPresent = uniqueChars.includes(currentChar);
   return isCharPresent ? uniqueChars : uniqueChars + currentChar;
 };
 
-const uniqueChars = function (string) {
-  return string.split('').reduce(getUniqueChars, '');
+const onlyUniqueChars = function (string) {
+  return string.split('').reduce(uniqueChars, '');
 };
 
 const uniqueCharactersOf = function (strings) {
-  return strings.map(uniqueChars);
+  return strings.map(onlyUniqueChars);
 };
 
 console.log(uniqueCharactersOf(strings1));

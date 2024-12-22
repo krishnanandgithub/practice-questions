@@ -174,7 +174,7 @@ const sum = function (num1, num2) {
 const filterBelowAveragePrice = function (products) {
   const prices = products.map(function (product) { return product.price; });
   const averagePrice = prices.reduce(sum, 0) / products.length;
-  
+
   return products.filter(function (item) { return item.price < averagePrice; });
 };
 
