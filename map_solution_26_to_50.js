@@ -145,6 +145,14 @@ const min = function (num1, num2) {
   return num1 < num2 ? num1 : num2;
 };
 
+const longestString = function (string, currentString) {
+  return currentString.length > string.length ? currentString : string;
+};
+
+const longestStringOf = function (strings) {
+  return strings.reduce(longestString, '');
+};
+
 //-----------------------Q26--------------------------
 
 const extractNames = function (objects) {
@@ -401,14 +409,6 @@ const rankObject = [
 console.log(calculateRanks(rankObject));
 
 //---------------------------Q45------------------------------
-
-const longestString = function (string, currentString) {
-  return currentString.length > string.length ? currentString : string;
-};
-
-const longestStringOf = function (strings) {
-  return strings.reduce(longestString, '');
-};
 
 const normalizeStringLengths = function (strings) {
   const maxLength = longestStringOf(strings).length;
