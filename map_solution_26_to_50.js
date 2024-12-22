@@ -297,3 +297,16 @@ const extractScores = function (objects) {
 };
 
 console.log(extractScores(scoreObject));
+
+//---------------------------Q39------------------------------
+
+const keyValuePairs = function (objects) {
+  return objects.map(extract('key', 'value'));
+};
+
+const keyValueObject = [
+  { key: "a", value: 1 },
+  { key: "b", value: 2 }
+];
+
+console.log(keyValuePairs(keyValueObject));
