@@ -100,8 +100,12 @@ console.log(doubleLettersOf(strings2));
 
 //---------------------------Q8-----------------------
 
+const negatedBoolean = function (boolean) {
+  return !boolean;
+};
+
 const negatedBooleansOf = function (booleans) {
-  return booleans.map(function (boolean) { return !boolean; });
+  return booleans.map(negatedBoolean);
 };
 
 const booleans = [true, false, false, true, true, false];
@@ -119,8 +123,14 @@ console.log(charCodesOf(strings1));
 
 //---------------------------Q10-------------------------
 
+const slice = function (from, to) {
+  return function (string) {
+    return string.slice(from, to);
+  };
+};
+
 const getDomain = function (email) {
-  return email.slice(email.indexOf('@'), email.length);
+  return slice(email.indexOf('@'), email.length)(email);
 };
 
 const domainNamesOf = function (emails) {
@@ -132,12 +142,14 @@ console.log(domainNamesOf(emails));
 
 //---------------------------Q11-------------------------
 
-const getSplitWords = function (string) {
-  return string.split(' ');
+const splitWith = function (char) {
+  return function (string) {
+    return string.split(char);
+  };
 };
 
 const splitWordsOf = function (strings) {
-  return strings.map(getSplitWords);
+  return strings.map(splitWith(' '));
 };
 
 const splitWords = ["hello world", "goodbye moon"];
@@ -145,12 +157,14 @@ console.log(splitWordsOf(splitWords));
 
 //---------------------------Q12-------------------------
 
-const joinArray = function (array) {
-  return array.join('');
+const joinWith = function (char) {
+  return function (array) {
+    return array.join(char);
+  };
 };
 
 const joinedArraysOf = function (arrayOfArrays) {
-  return arrayOfArrays.map(joinArray);
+  return arrayOfArrays.map(joinWith(''));
 };
 
 const arrayOfArrays = [["a", "b"], ["c", "d"]];
@@ -174,7 +188,8 @@ const isAVowel = function (char) {
 };
 
 const onlyVowels = function (string) {
-  return string.split('').filter(isAVowel).join('');
+  const volels = splitWith('')(string).filter(isAVowel);
+  return joinWith('')(volels);
 };
 
 const countVowelsOf = function (strings) {
@@ -218,9 +233,9 @@ console.log(withoutVowelsOf(strings2));
 
 //---------------------------Q17-------------------------
 
-const runningSum = function (array, currentElement) {
-  const lastSum = array.length ? array.at(-1) : 0;
-  return [...array, currentElement + lastSum];
+const runningSum = function (sumArray, currentElement) {
+  const lastSum = sumArray.length ? sumArray.at(-1) : 0;
+  return [...sumArray, currentElement + lastSum];
 };
 
 const cumulativeSum = function (array) {
@@ -287,12 +302,12 @@ console.log(rangesOf(numbers));
 
 //-----------------------------Q21--------------------------------
 
-const getFirstLetterCaptilize = function (string) {
+const firstLetterCaptilize = function (string) {
   return string ? string[0].toUpperCase() + string.slice(1, string.length) : '';
 };
 
-const captilizedFirstLetter = function (longString) {
-  return longString.split(' ').map(getFirstLetterCaptilize);
+const captilizedFirstLetter = function (sentence) {
+  return sentence.split(' ').map(firstLetterCaptilize);
 };
 
 const capitalizedFirstLettersOf = function (strings) {
@@ -303,12 +318,12 @@ console.log(capitalizedFirstLettersOf(listOfWords));
 
 //-------------------------------------Q22----------------------------------
 
-const wordLengths = function (longString) {
-  return longString.split(' ').map(lengthOfString);
+const wordsLengthInSentence = function (sentence) {
+  return sentence.split(' ').map(lengthOfString);
 };
 
 const wordLengthsOf = function (strings) {
-  return strings.map(wordLengths);
+  return strings.map(wordsLengthInSentence);
 };
 
 console.log(wordLengthsOf(listOfWords));
