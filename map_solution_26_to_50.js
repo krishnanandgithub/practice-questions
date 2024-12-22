@@ -246,3 +246,16 @@ const abbreviationObject = [
 ];
 
 console.log(abbreviations(abbreviationObject));
+
+//---------------------------Q34------------------------------
+
+const mathScores = function (objects) {
+  return objects.flatMap(extract('scores')).flatMap(extract('math'));
+};
+
+const scoreObject = [
+  { name: "Alice", scores: { math: 90, english: 85 } },
+  { name: "Bob", scores: { math: 80, english: 75 } }
+];
+
+console.log(mathScores(scoreObject));
