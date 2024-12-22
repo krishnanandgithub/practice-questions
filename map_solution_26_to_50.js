@@ -137,6 +137,10 @@ const extract = function (...properties) {
   };
 };
 
+const max = function (num1, num2) {
+  return num1 > num2 ? num1 : num2;
+};
+
 //-----------------------Q26--------------------------
 
 const extractNames = function (objects) {
@@ -323,3 +327,19 @@ const splitFullNameObject = [
 ];
 
 console.log(splitFullNames(splitFullNameObject));
+
+//---------------------------Q41------------------------------
+
+const normalizeScores = function (objects) {
+  const scores = objects.flatMap(extract('score'));
+  const maxScores = scores.reduce(max, -Infinity);
+
+  return scores.map(function (score) { return score / maxScores; });
+};
+
+const normalizeScoreObject = [
+  { name: "Alice", score: 80 },
+  { name: "Bob", score: 100 }
+];
+
+console.log(normalizeScores(normalizeScoreObject));
