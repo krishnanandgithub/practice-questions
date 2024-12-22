@@ -386,14 +386,35 @@ const rank = function (orderdMarks) {
 const calculateRanks = function (objects) {
   const marks = objects.flatMap(extract('score'));
   const orderdMarks = sortInDescending(marks);
-  
+
   return objects.flatMap(extract('score')).map(rank(orderdMarks));
 };
 
 const rankObject = [
   { name: "Alice", score: 80 },
+  { name: "Aman", score: 75 },
   { name: "Bob", score: 100 },
-  { name: "Charlie", score: 90 }
+  { name: "Charlie", score: 90 },
+  { name: "Jobs", score: 80 }
 ];
 
 console.log(calculateRanks(rankObject));
+
+//---------------------------Q45------------------------------
+
+const longestString = function (string, currentString) {
+  return currentString.length > string.length ? currentString : string;
+};
+
+const longestStringOf = function (strings) {
+  return strings.reduce(longestString, '');
+};
+
+const normalizeStringLengths = function (strings) {
+  const maxLength = longestStringOf(strings).length;
+  return strings.map(function (str) { return str.padEnd(maxLength); });
+};
+
+const normalizeStringObject = ["cat", "elephant", "dog"];
+
+console.log(normalizeStringLengths(normalizeStringObject));
