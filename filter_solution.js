@@ -171,23 +171,11 @@ const sum = function (num1, num2) {
   return num1 + num2;
 };
 
-const average = function (totalItems) {
-  return function (totalAverage, product) {
-    return sum(totalAverage, product.price / totalItems);
-  };
-};
-
-const isBelowAveragePrice = function (averagePrice) {
-  return function (product) {
-    return complement(isAbove(averagePrice))(product.price);
-  };
-
-};
-
 const filterBelowAveragePrice = function (products) {
-  const totalProducts = products.length;
-  const averagePrice = products.reduce(average(totalProducts), 0);
-  return products.filter(isBelowAveragePrice(averagePrice));
+  const prices = products.map(function (product) { return product.price; });
+  const averagePrice = prices.reduce(sum, 0) / products.length;
+  
+  return products.filter(function (item) { return item.price < averagePrice; });
 };
 
 const productsBelowAveragePrice = [
