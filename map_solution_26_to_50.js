@@ -154,3 +154,23 @@ const extractFlags = function (objects) {
 
 const flagObject = [{ active: true }, { active: false }];
 console.log(extractFlags(flagObject));
+
+//---------------------------Q31------------------------------
+
+const fullName = function (object) {
+  const firstName = extractProperty('firstName')(object);
+  const lastName = extractProperty('lastName')(object);
+
+  return firstName + ' ' + lastName;
+};
+
+const fullNames = function (objects) {
+  return objects.map(fullName);
+};
+
+const fullNameObject = [
+  { firstName: "Alice", lastName: "Smith" },
+  { firstName: "Bob", lastName: "Brown" }
+];
+
+console.log(fullNames(fullNameObject));
