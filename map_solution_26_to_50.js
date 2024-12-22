@@ -115,6 +115,16 @@ const wrappedStringWith = function (braces) {
   };
 };
 
+const isAbove = function (target) {
+  return function (number) {
+    return number > target;
+  };
+};
+
+const isAdult = function (person) {
+  return isAbove(18)(person.age);
+};
+
 //-----------------------Q26--------------------------
 
 const extractProperties = function (object) {
@@ -202,3 +212,16 @@ const priceObject = [
 ];
 
 console.log(totalPrices(priceObject));
+
+//---------------------------Q33------------------------------
+
+const isAdults = function (objects) {
+  return objects.flatMap(extract('age')).map(isAbove(18));
+};
+
+const adultObjuct = [
+  { name: "Alice", age: 17 },
+  { name: "Bob", age: 22 }
+];
+
+console.log(isAdults(adultObjuct));

@@ -112,3 +112,13 @@ const wrappedStringWith = function (braces) {
     return braces[0] + string + braces[1];
   };
 };
+
+const isAbove = function (target) {
+  return function (number) {
+    return number > target;
+  };
+};
+
+const isAdult = function (person) {
+  return isAbove(18)(person.age);
+};
