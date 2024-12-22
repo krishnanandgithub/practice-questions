@@ -225,3 +225,24 @@ const adultObjuct = [
 ];
 
 console.log(isAdults(adultObjuct));
+
+//---------------------------Q34------------------------------
+
+const getAbbreviation = function (names) {
+  const [cityName, country] = names;
+  console.log(cityName, country);
+  const cityAbbreviation = cityName.split(' ').map(firstCharacter).join('');
+
+  return cityAbbreviation + ' ' + country;
+};
+
+const abbreviations = function (objects) {
+  return objects.map(extract('city', 'country')).flatMap(getAbbreviation);
+};
+
+const abbreviationObject = [
+  { city: "New York", country: "USA" },
+  { city: "Los Angeles", country: "USA" }
+];
+
+console.log(abbreviations(abbreviationObject));
