@@ -310,3 +310,16 @@ const keyValueObject = [
 ];
 
 console.log(keyValuePairs(keyValueObject));
+
+//---------------------------Q40------------------------------
+
+const splitFullNames = function (objects) {
+  return objects.flatMap(extract('name')).map(splitWith(' '));
+};
+
+const splitFullNameObject = [
+  { name: "Alice Smith" },
+  { name: "Bob Brown" }
+];
+
+console.log(splitFullNames(splitFullNameObject));
