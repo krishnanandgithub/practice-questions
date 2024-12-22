@@ -326,3 +326,16 @@ const flattenedArraysOf = function (arrays) {
 const nestedArray = [[1, [2, 3]], [4, [5, 6]]];
 
 console.log(flattenedArraysOf(nestedArray));
+
+//-------------------------------------Q24----------------------------------
+
+const sortedString = function (string) {
+  return string.split('').sort().join('');
+};
+
+const sortedLettersOf = function (strings) {
+  return strings.map(sortedString);
+};
+
+console.log(sortedLettersOf(strings1))
+console.log(sortedLettersOf(strings2))
