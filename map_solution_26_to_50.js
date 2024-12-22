@@ -2,6 +2,22 @@
 
 const VOWELS = 'aeiou';
 
+const sum = function (num1, num2) {
+  return num1 + num2;
+};
+
+const add = function (numbers) {
+  return numbers.reduce(sum, 0);
+};
+
+const multiply = function (num1, num2) {
+  return num1 * num2;
+};
+
+const product = function (numbers) {
+  return numbers.reduce(multiply, 1);
+};
+
 const sqrt = function (number) {
   return number * number;
 };
@@ -101,14 +117,20 @@ const wrappedStringWith = function (braces) {
 
 //-----------------------Q26--------------------------
 
-const extractProperty = function (key) {
-  return function (object) {
+const extractProperties = function (object) {
+  return function (key) {
     return object[key];
   };
 };
 
+const extract = function (...properties) {
+  return function (object) {
+    return properties.map(extractProperties(object));
+  };
+};
+
 const extractNames = function (objects) {
-  return objects.map(extractProperty('name'));
+  return objects.flatMap(extract('name'));
 };
 
 const nameObjects = [{ name: "Alice" }, { name: "Bob" }];
@@ -117,7 +139,7 @@ console.log(extractNames(nameObjects));
 //---------------------------Q27------------------------------
 
 const extractAges = function (objects) {
-  return objects.map(extractProperty('age'));
+  return objects.flatMap(extract('age'));
 };
 
 const ageObjects = [{ age: 25 }, { age: 30 }];
@@ -126,46 +148,39 @@ console.log(extractAges(ageObjects));
 //---------------------------Q28------------------------------
 
 const firstLettersOfNames = function (objects) {
-  return objects.map(extractProperty('name')).map(firstCharacter);
+  return objects.flatMap(extract('name')).map(firstCharacter);
 };
 
 console.log(firstLettersOfNames(nameObjects));
 
 //---------------------------Q29------------------------------
 
-const areaOfRectangles = function (rectangle) {
-  const width = extractProperty('width')(rectangle);
-  const height = extractProperty('height')(rectangle);
-  return width * height;
-};
-
 const calculateAreas = function (rectangles) {
-  return rectangles.map(areaOfRectangles);
+  return rectangles.map(extract('width', 'height')).map(product);
 };
 
-const rectanglesObject = [{ width: 2, height: 3 }, { width: 4, height: 5 }];
+const rectanglesObject = [
+  { width: 2, height: 3 },
+  { width: 4, height: 5 }
+];
 console.log(calculateAreas(rectanglesObject));
 
 //---------------------------Q30------------------------------
 
 const extractFlags = function (objects) {
-  return objects.map(extractProperty('active'));
+  return objects.flatMap(extract('active'));
 };
 
-const flagObject = [{ active: true }, { active: false }];
+const flagObject = [
+  { active: true },
+  { active: false }
+];
 console.log(extractFlags(flagObject));
 
 //---------------------------Q31------------------------------
 
-const fullName = function (object) {
-  const firstName = extractProperty('firstName')(object);
-  const lastName = extractProperty('lastName')(object);
-
-  return firstName + ' ' + lastName;
-};
-
 const fullNames = function (objects) {
-  return objects.map(fullName);
+  return objects.map(extract('firstName', 'lastName')).map(joinWith(' '));
 };
 
 const fullNameObject = [
@@ -174,3 +189,16 @@ const fullNameObject = [
 ];
 
 console.log(fullNames(fullNameObject));
+
+//---------------------------Q32------------------------------
+
+const totalPrices = function (objects) {
+  return objects.map(extract('price', 'quantity')).map(product);
+};
+
+const priceObject = [
+  { price: 10, quantity: 2 },
+  { price: 5, quantity: 4 }
+];
+
+console.log(totalPrices(priceObject));
