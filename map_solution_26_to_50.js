@@ -145,3 +145,12 @@ const calculateAreas = function (rectangles) {
 
 const rectanglesObject = [{ width: 2, height: 3 }, { width: 4, height: 5 }];
 console.log(calculateAreas(rectanglesObject));
+
+//---------------------------Q30------------------------------
+
+const extractFlags = function (objects) {
+  return objects.map(extractProperty('active'));
+};
+
+const flagObject = [{ active: true }, { active: false }];
+console.log(extractFlags(flagObject));
