@@ -354,3 +354,18 @@ const percentageContributions = function (numbers) {
 const scores = [10, 20, 30];
 
 console.log(percentageContributions(scores));
+
+//---------------------------Q43------------------------------
+
+const min = function (num1, num2) {
+  return num1 < num2 ? num1 : num2;
+};
+
+const subtractMin = function (numbers) {
+  const minimum = numbers.reduce(min, Infinity);
+  return numbers.map(function (num) { return num - minimum; });
+};
+
+const numbers = [4, 6, 7, 3];
+
+console.log(subtractMin(numbers));
