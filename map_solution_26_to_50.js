@@ -141,6 +141,10 @@ const max = function (num1, num2) {
   return num1 > num2 ? num1 : num2;
 };
 
+const min = function (num1, num2) {
+  return num1 < num2 ? num1 : num2;
+};
+
 //-----------------------Q26--------------------------
 
 const extractNames = function (objects) {
@@ -357,10 +361,6 @@ console.log(percentageContributions(scores));
 
 //---------------------------Q43------------------------------
 
-const min = function (num1, num2) {
-  return num1 < num2 ? num1 : num2;
-};
-
 const subtractMin = function (numbers) {
   const minimum = numbers.reduce(min, Infinity);
   return numbers.map(function (num) { return num - minimum; });
@@ -369,3 +369,31 @@ const subtractMin = function (numbers) {
 const numbers = [4, 6, 7, 3];
 
 console.log(subtractMin(numbers));
+
+
+//---------------------------Q44------------------------------
+
+const sortInDescending = function (array) {
+  return array.sort(function (a, b) { return b - a; });
+};
+
+const rank = function (orderdMarks) {
+  return function (mark) {
+    return orderdMarks.indexOf(mark) + 1;
+  };
+};
+
+const calculateRanks = function (objects) {
+  const marks = objects.flatMap(extract('score'));
+  const orderdMarks = sortInDescending(marks);
+  
+  return objects.flatMap(extract('score')).map(rank(orderdMarks));
+};
+
+const rankObject = [
+  { name: "Alice", score: 80 },
+  { name: "Bob", score: 100 },
+  { name: "Charlie", score: 90 }
+];
+
+console.log(calculateRanks(rankObject));

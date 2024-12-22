@@ -138,3 +138,8 @@ const extract = function (...properties) {
 const max = function (num1, num2) {
   return num1 > num2 ? num1 : num2;
 };
+
+
+const min = function (num1, num2) {
+  return num1 < num2 ? num1 : num2;
+};
