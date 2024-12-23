@@ -317,3 +317,11 @@ const concatenateNames = function (names) {
 };
 
 console.log(concatenateNames(words));
+
+//------------------------Q18-----------------------
+
+const countVowelsInWords = function (words) {
+  return words.map(onlyVowels).map(lengthOfString);
+};
+
+console.log(countVowelsInWords(words));
