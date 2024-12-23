@@ -270,6 +270,18 @@ const longestWord = function (words) {
   return words.reduce(longestString, '');
 };
 
-const words = ["apple", "banana", "cherry", "kiwi"];
+const words = ["apple", "banana", "cherry", "kiwi", "ab", "a"];
 
 console.log(longestWord(words));
+
+//------------------------Q13------------------------
+
+const shortestString = function (str1, str2) {
+  return str1.length < str2.length ? str1 : str2;
+};
+
+const shortestWord = function (words) {
+  return words.reduce(shortestString);
+};
+
+console.log(shortestWord(words));
