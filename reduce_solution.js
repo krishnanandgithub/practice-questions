@@ -384,3 +384,21 @@ const uniqueNumbers = (numbers) =>
 
 const uniqueNums = [1, 3, 2, 5, 1, 5, 3, 2, 4, 7, 4, 2, 3, 4];
 console.log(uniqueNumbers(uniqueNums));
+
+//------------------------Q25-----------------------
+
+const createObj = function (obj, curE) {
+  if (obj[curE[1]]) {
+    obj[curE[1]].push(curE[0]);
+    return obj;
+  }
+  obj[curE[1]] = [curE[0]];
+
+  return obj;
+};
+
+const groupByLength = (strings) =>
+  strings.map((str) => [str, str.length]).reduce(createObj, {});
+
+const groupingWords = ["apple", "banana", "cherry", "date"];
+console.log(groupByLength(groupingWords));
