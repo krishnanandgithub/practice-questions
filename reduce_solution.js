@@ -356,3 +356,20 @@ const duplicateNumbers = function (numbers) {
 
 const duplicateNums = [1, 3, 2, 5, 1, 5, 3, 2, 4, 7, 4, 2, 3, 4];
 console.log(duplicateNumbers(duplicateNums));
+
+//------------------------Q22-----------------------
+
+const concatenateArrays = function (arrays) {
+  return arrays.flat();
+};
+
+const arrays = [[1, 2], [3, 4], [5, 6]];
+console.log(concatenateArrays(arrays));
+
+//------------------------Q23-----------------------
+
+const flattenArray = function (arrays) {
+  return arrays.flat();
+};
+
+console.log(flattenArray(arrays));
