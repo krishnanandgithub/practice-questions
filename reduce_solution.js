@@ -97,6 +97,10 @@ const firstLetterCaptilize = function (string) {
   return string ? string[0].toUpperCase() + string.slice(1, string.length) : '';
 };
 
+const firstLetterUncaptilize = function (string) {
+  return string ? string[0].toLowerCase() + string.slice(1, string.length) : '';
+};
+
 const flatArray = function (array) {
   return array.flat();
 };
@@ -325,3 +329,21 @@ const countVowelsInWords = function (words) {
 };
 
 console.log(countVowelsInWords(words));
+
+//------------------------Q19-----------------------
+
+const makeCamelCase = function (words) {
+  const pascalCase = joinWith('')(words.map(firstLetterCaptilize));
+  return firstLetterUncaptilize(pascalCase);
+};
+
+const caseWords = ["hello", "world", "how", "are", "you"];
+console.log(makeCamelCase(caseWords));
+
+//------------------------Q20-----------------------
+
+const reverseStrings = function (words) {
+  return words.map(reverseString).join('')
+};
+
+console.log(reverseStrings(words));
