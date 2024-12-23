@@ -343,7 +343,16 @@ console.log(makeCamelCase(caseWords));
 //------------------------Q20-----------------------
 
 const reverseStrings = function (words) {
-  return words.map(reverseString).join('')
+  return words.map(reverseString).join('');
 };
 
 console.log(reverseStrings(words));
+
+//------------------------Q21-----------------------
+
+const duplicateNumbers = function (numbers) {
+  return numbers.reduce((set, e) => set.includes(e) ? set : [...set, e], []);
+};
+
+const duplicateNums = [1, 3, 2, 5, 1, 5, 3, 2, 4, 7, 4, 2, 3, 4];
+console.log(duplicateNumbers(duplicateNums));
