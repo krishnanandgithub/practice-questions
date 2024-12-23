@@ -1,6 +1,6 @@
 //---------------------Generic Function-------------------------//
 
-const VOWELS = 'aeiou';
+const VOWELS = "aeiou";
 
 const sum = function (num1, num2) {
   return num1 + num2;
@@ -31,7 +31,7 @@ const upperCase = function (string) {
 };
 
 const firstCharacter = function (string) {
-  return string ? string[0] : '';
+  return string ? string[0] : "";
 };
 
 const truthValue = function (value) {
@@ -39,7 +39,7 @@ const truthValue = function (value) {
 };
 
 const reverseString = function (string) {
-  return string.split('').reverse().join('');
+  return string.split("").reverse().join("");
 };
 
 const repeat = function (times) {
@@ -75,8 +75,8 @@ const isAVowel = function (char) {
 };
 
 const onlyVowels = function (string) {
-  const volels = splitWith('')(string).filter(isAVowel);
-  return joinWith('')(volels);
+  const volels = splitWith("")(string).filter(isAVowel);
+  return joinWith("")(volels);
 };
 
 const reverseArray = function (array) {
@@ -90,15 +90,15 @@ const compliment = function (f) {
 };
 
 const onlyConsonents = function (string) {
-  return string.split('').filter(compliment(isAVowel)).join('');
+  return string.split("").filter(compliment(isAVowel)).join("");
 };
 
 const firstLetterCaptilize = function (string) {
-  return string ? string[0].toUpperCase() + string.slice(1, string.length) : '';
+  return string ? string[0].toUpperCase() + string.slice(1, string.length) : "";
 };
 
 const firstLetterUncaptilize = function (string) {
-  return string ? string[0].toLowerCase() + string.slice(1, string.length) : '';
+  return string ? string[0].toLowerCase() + string.slice(1, string.length) : "";
 };
 
 const flatArray = function (array) {
@@ -106,11 +106,11 @@ const flatArray = function (array) {
 };
 
 const wordsLengthInSentence = function (sentence) {
-  return sentence.split(' ').map(lengthOfString);
+  return sentence.split(" ").map(lengthOfString);
 };
 
 const sortedString = function (string) {
-  return string.split('').sort().join('');
+  return string.split("").sort().join("");
 };
 
 const wrappedStringWith = function (braces) {
@@ -145,7 +145,6 @@ const max = function (num1, num2) {
   return num1 > num2 ? num1 : num2;
 };
 
-
 const min = function (num1, num2) {
   return num1 < num2 ? num1 : num2;
 };
@@ -155,7 +154,7 @@ const longestString = function (string, currentString) {
 };
 
 const longestStringOf = function (strings) {
-  return strings.reduce(longestString, '');
+  return strings.reduce(longestString, "");
 };
 
 //------------------------Q1------------------------
@@ -259,11 +258,11 @@ const concat = function (str1, str2) {
 };
 
 const concatenateWords = function (words) {
-  return words.reduce(concat, '');
+  return words.reduce(concat, "");
 };
 
-const words1 = ['hello', 'world'];
-const words2 = ['apple', 'banana', 'mango'];
+const words1 = ["hello", "world"];
+const words2 = ["apple", "banana", "mango"];
 
 console.log(concatenateWords(words1));
 console.log(concatenateWords(words2));
@@ -271,7 +270,7 @@ console.log(concatenateWords(words2));
 //------------------------Q12------------------------
 
 const longestWord = function (words) {
-  return words.reduce(longestString, '');
+  return words.reduce(longestString, "");
 };
 
 const words = ["apple", "banana", "cherry", "kiwi", "ab", "a"];
@@ -293,7 +292,7 @@ console.log(shortestWord(words));
 //------------------------Q14------------------------
 
 const joinWithComma = function (words) {
-  return joinWith(',')(words);
+  return joinWith(",")(words);
 };
 
 console.log(joinWithComma(words));
@@ -309,7 +308,7 @@ console.log(reverseWords(words));
 //------------------------Q16-----------------------
 
 const joinWordsWithSpace = function (words) {
-  return joinWith(' ')(words);
+  return joinWith(" ")(words);
 };
 
 console.log(joinWordsWithSpace(words));
@@ -317,7 +316,7 @@ console.log(joinWordsWithSpace(words));
 //------------------------Q17-----------------------
 
 const concatenateNames = function (names) {
-  return joinWith('')(names);
+  return joinWith("")(names);
 };
 
 console.log(concatenateNames(words));
@@ -333,7 +332,7 @@ console.log(countVowelsInWords(words));
 //------------------------Q19-----------------------
 
 const makeCamelCase = function (words) {
-  const pascalCase = joinWith('')(words.map(firstLetterCaptilize));
+  const pascalCase = joinWith("")(words.map(firstLetterCaptilize));
   return firstLetterUncaptilize(pascalCase);
 };
 
@@ -343,7 +342,7 @@ console.log(makeCamelCase(caseWords));
 //------------------------Q20-----------------------
 
 const reverseStrings = function (words) {
-  return words.map(reverseString).join('');
+  return words.map(reverseString).join("");
 };
 
 console.log(reverseStrings(words));
@@ -351,19 +350,23 @@ console.log(reverseStrings(words));
 //------------------------Q21-----------------------
 
 const duplicateNumbers = function (numbers) {
-  return numbers.reduce((set, e) => set.includes(e) ? set : [...set, e], []);
+  return numbers.reduce((duplicate, e) => [...duplicate, e, e], []);
 };
 
-const duplicateNums = [1, 3, 2, 5, 1, 5, 3, 2, 4, 7, 4, 2, 3, 4];
+const duplicateNums = [1, 2, 3, 4, 5];
 console.log(duplicateNumbers(duplicateNums));
 
 //------------------------Q22-----------------------
 
 const concatenateArrays = function (arrays) {
-  return arrays.flat();
+  return arrays.reduce((concat, e) => [...concat, ...e], []);
 };
 
-const arrays = [[1, 2], [3, 4], [5, 6]];
+const arrays = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
 console.log(concatenateArrays(arrays));
 
 //------------------------Q23-----------------------
@@ -373,3 +376,11 @@ const flattenArray = function (arrays) {
 };
 
 console.log(flattenArray(arrays));
+
+//------------------------Q24-----------------------
+
+const uniqueNumbers = (numbers) =>
+  numbers.reduce((set, e) => (set.includes(e) ? set : [...set, e]), []);
+
+const uniqueNums = [1, 3, 2, 5, 1, 5, 3, 2, 4, 7, 4, 2, 3, 4];
+console.log(uniqueNumbers(uniqueNums));
