@@ -285,3 +285,11 @@ const shortestWord = function (words) {
 };
 
 console.log(shortestWord(words));
+
+//------------------------Q14------------------------
+
+const joinWithComma = function (words) {
+  return joinWith(',')(words);
+};
+
+console.log(joinWithComma(words));
