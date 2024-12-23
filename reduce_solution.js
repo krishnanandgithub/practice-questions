@@ -309,3 +309,11 @@ const joinWordsWithSpace = function (words) {
 };
 
 console.log(joinWordsWithSpace(words));
+
+//------------------------Q17-----------------------
+
+const concatenateNames = function (names) {
+  return joinWith('')(names);
+};
+
+console.log(concatenateNames(words));
