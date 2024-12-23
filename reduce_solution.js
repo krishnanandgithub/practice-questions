@@ -293,3 +293,19 @@ const joinWithComma = function (words) {
 };
 
 console.log(joinWithComma(words));
+
+//------------------------Q15------------------------
+
+const reverseWords = function (words) {
+  return words.reverse();
+};
+
+console.log(reverseWords(words));
+
+//------------------------Q16-----------------------
+
+const joinWordsWithSpace = function (words) {
+  return joinWith(' ')(words);
+};
+
+console.log(joinWordsWithSpace(words));
