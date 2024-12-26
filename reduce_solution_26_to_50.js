@@ -222,3 +222,23 @@ const invertObject = function (obj) {
 
 const obj = { a: 1, b: 2, c: 3 };
 console.log(invertObject(obj));
+
+//-------------------------------Q30-------------------------------
+
+const mergeArrays = function (arr1, arr2) {
+  return arr1.concat(arr2).reduce((o, e) => {
+    o[e[0]] = e[1];
+    return o;
+  }, {});
+};
+
+const arr1 = [
+  ["a", 1],
+  ["b", 2],
+];
+const arr2 = [
+  ["c", 3],
+  ["d", 4],
+];
+
+console.log(mergeArrays(arr1, arr2));
