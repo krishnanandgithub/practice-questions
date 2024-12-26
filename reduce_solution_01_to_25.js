@@ -385,20 +385,15 @@ const uniqueNumbers = (numbers) =>
 const uniqueNums = [1, 3, 2, 5, 1, 5, 3, 2, 4, 7, 4, 2, 3, 4];
 console.log(uniqueNumbers(uniqueNums));
 
-//------------------------Q25-----------------------
-
-const getGroupByLength = function (obj, curE) {
-  const length = curE.length;
-  obj[length] = length in obj ? [...obj[length], curE] : [curE];
-  return obj;
-};
+//------------------------Q25-------------------------
 
 const groupBy = function (list, fn) {
-  return list.reduce(
-    (o, e) =>
-      fn(e) in o ? { ...o, [fn(e)]: [...o[fn(e)], e] } : { ...o, [fn(e)]: [e] },
-    {}
-  );
+  return list.reduce((o, e) => {
+    const value = o[fn(e)] || [];
+    value.push(e);
+    o[fn(e)] = value;
+    return o;
+  }, {});
 };
 
 const groupByLength = (strings) => groupBy(strings, lengthOfString);

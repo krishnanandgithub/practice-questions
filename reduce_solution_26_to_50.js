@@ -242,3 +242,28 @@ const arr2 = [
 ];
 
 console.log(mergeArrays(arr1, arr2));
+
+//-------------------------------Q31-------------------------------
+
+const getProperty = (key) => (obj) => obj[key];
+
+const groupBy = function (list, fn) {
+  return list.reduce((o, e) => {
+    const value = o[fn(e)] || [];
+    value.push(e);
+    o[fn(e)] = value;
+    return o;
+  }, {});
+};
+
+const groupByProperty = function (objects) {
+  return groupBy(objects, getProperty("age"));
+};
+
+const objArr = [
+  { name: "John", age: 25 },
+  { name: "Jane", age: 30 },
+];
+
+console.log(groupByProperty(objArr));
+
