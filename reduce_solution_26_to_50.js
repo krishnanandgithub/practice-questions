@@ -211,3 +211,14 @@ const keys = ["a", "b", "c"];
 const values = [1, 2, 3];
 
 console.log(zip(keys, values));
+
+//-------------------------------Q29-------------------------------
+
+const invertObject = function (obj) {
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
+  return zip(values, keys);
+};
+
+const obj = { a: 1, b: 2, c: 3 };
+console.log(invertObject(obj));
