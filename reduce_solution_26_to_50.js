@@ -158,11 +158,17 @@ const longestStringOf = function (strings) {
 };
 
 //-------------------------------Q26-------------------------------
-const occurrenceObj = function (obj, str) {
+const _getCount = function (obj, str) {
   return str in obj ? { ...obj, [str]: obj[str] + 1 } : { ...obj, [str]: 1 };
 };
 
-const countOccurrences = (strings) => strings.reduce(occurrenceObj, {});
+const getCount = function (obj, str) {
+  const count = (obj[str] || 0) + 1;
+  obj[str] = count;
+  return obj;
+};
+
+const countOccurrences = (strings) => strings.reduce(getCount, {});
 
 const occurrenceWords = [
   "apple",
@@ -191,3 +197,17 @@ const mergeObjects = function (objects) {
 
 const objToMerge = [{ a: 1, b: 2 }, { b: 3, c: 4 }, { a: 5 }];
 console.log(mergeObjects(objToMerge));
+
+//-------------------------------Q28-------------------------------
+
+const zip = function (keys, values) {
+  return keys.reduce((obj, key, i) => {
+    obj[key] = values[i];
+    return obj;
+  }, {});
+};
+
+const keys = ["a", "b", "c"];
+const values = [1, 2, 3];
+
+console.log(zip(keys, values));

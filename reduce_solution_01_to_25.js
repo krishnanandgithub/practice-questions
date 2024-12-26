@@ -393,8 +393,18 @@ const getGroupByLength = function (obj, curE) {
   return obj;
 };
 
-const groupByLength = (strings) =>
-  strings.reduce(getGroupByLength, {});
+const groupBy = function (list, fn) {
+  return list.reduce(
+    (o, e) =>
+      fn(e) in o ? { ...o, [fn(e)]: [...o[fn(e)], e] } : { ...o, [fn(e)]: [e] },
+    {}
+  );
+};
+
+const groupByLength = (strings) => groupBy(strings, lengthOfString);
+const groupByEvenOdd = (nums) => groupBy(nums, isEven);
 
 const groupingWords = ["apple", "banana", "cherry", "date"];
+const groupingNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 console.log(groupByLength(groupingWords));
+console.log(groupByEvenOdd(groupingNums));
