@@ -267,3 +267,22 @@ const objArr = [
 
 console.log(groupByProperty(objArr));
 
+//-------------------------------Q32-------------------------------
+
+const ascendingGroup = (a, e) => {
+  if (a.at(-1).at(-1) < e) {
+    a.at(-1).push(e);
+    return a;
+  }
+
+  return [...a, [e]];
+};
+
+const ascendingGroups = function (numbers) {
+  const ascending = numbers.reduce(ascendingGroup, [[]]);
+  ascending.shift();
+  return ascending;
+};
+
+const randomNumbers = [1, 2, 3, 4, 3, 4, 5, 10, 6, 7, 8, 9];
+console.log(ascendingGroups(randomNumbers));
