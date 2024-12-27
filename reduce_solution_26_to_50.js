@@ -286,3 +286,19 @@ const ascendingGroups = function (numbers) {
 
 const randomNumbers = [1, 2, 3, 4, 3, 4, 5, 10, 6, 7, 8, 9];
 console.log(ascendingGroups(randomNumbers));
+
+//-------------------------------Q33-------------------------------
+
+const flattenToObject = function (pairs) {
+  return pairs.reduce((o, e) => {
+    o[e[0]] = e[1];
+    return o;
+  }, {});
+};
+
+const entries = [
+  ["a", 1],
+  ["b", 2],
+  ["c", 3],
+];
+console.log(flattenToObject(entries));
