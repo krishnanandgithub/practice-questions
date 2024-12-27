@@ -302,3 +302,12 @@ const entries = [
   ["c", 3],
 ];
 console.log(flattenToObject(entries));
+
+//-------------------------------Q34-------------------------------
+
+const longestStringInStrings = function (strings) {
+  return strings.reduce(longestString, "");
+};
+
+const listOfStrings = ["apple", "banana", "cherry", "dates"];
+console.log(longestStringInStrings(listOfStrings));
