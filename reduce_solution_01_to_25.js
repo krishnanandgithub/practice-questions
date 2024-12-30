@@ -1,161 +1,23 @@
 //---------------------Generic Function-------------------------//
 
-const VOWELS = "aeiou";
-
-const sum = function (num1, num2) {
-  return num1 + num2;
-};
-
-const add = function (numbers) {
-  return numbers.reduce(sum, 0);
-};
-
-const multiply = function (num1, num2) {
-  return num1 * num2;
-};
-
-const product = function (numbers) {
-  return numbers.reduce(multiply, 1);
-};
-
-const sqrt = function (number) {
-  return number * number;
-};
-
-const lengthOfString = function (string) {
-  return string.length;
-};
-
-const upperCase = function (string) {
-  return string.toUpperCase();
-};
-
-const firstCharacter = function (string) {
-  return string ? string[0] : "";
-};
-
-const truthValue = function (value) {
-  return !!value;
-};
-
-const reverseString = function (string) {
-  return string.split("").reverse().join("");
-};
-
-const repeat = function (times) {
-  return function (string) {
-    return string.repeat(times);
-  };
-};
-
-const negatedBoolean = function (boolean) {
-  return !boolean;
-};
-
-const slice = function (from, to) {
-  return function (string) {
-    return string.slice(from, to);
-  };
-};
-
-const splitWith = function (char) {
-  return function (string) {
-    return string.split(char);
-  };
-};
-
-const joinWith = function (char) {
-  return function (array) {
-    return array.join(char);
-  };
-};
-
-const isAVowel = function (char) {
-  return VOWELS.includes(char.toLowerCase());
-};
-
-const onlyVowels = function (string) {
-  const volels = splitWith("")(string).filter(isAVowel);
-  return joinWith("")(volels);
-};
-
-const reverseArray = function (array) {
-  return array.reverse();
-};
-
-const compliment = function (f) {
-  return function (...arg) {
-    return !f(...arg);
-  };
-};
-
-const onlyConsonents = function (string) {
-  return string.split("").filter(compliment(isAVowel)).join("");
-};
-
-const firstLetterCaptilize = function (string) {
-  return string ? string[0].toUpperCase() + string.slice(1, string.length) : "";
-};
-
-const firstLetterUncaptilize = function (string) {
-  return string ? string[0].toLowerCase() + string.slice(1, string.length) : "";
-};
-
-const flatArray = function (array) {
-  return array.flat();
-};
-
-const wordsLengthInSentence = function (sentence) {
-  return sentence.split(" ").map(lengthOfString);
-};
-
-const sortedString = function (string) {
-  return string.split("").sort().join("");
-};
-
-const wrappedStringWith = function (braces) {
-  return function (string) {
-    return braces[0] + string + braces[1];
-  };
-};
-
-const isAbove = function (target) {
-  return function (number) {
-    return number > target;
-  };
-};
-
-const isAdult = function (person) {
-  return isAbove(18)(person.age);
-};
-
-const extractProperties = function (object) {
-  return function (key) {
-    return object[key];
-  };
-};
-
-const extract = function (...properties) {
-  return function (object) {
-    return properties.map(extractProperties(object));
-  };
-};
-
-const max = function (num1, num2) {
-  return num1 > num2 ? num1 : num2;
-};
-
-const min = function (num1, num2) {
-  return num1 < num2 ? num1 : num2;
-};
-
-const longestString = function (string, currentString) {
-  return currentString.length > string.length ? currentString : string;
-};
-
-const longestStringOf = function (strings) {
-  return strings.reduce(longestString, "");
-};
+import {
+  concatStr,
+  firstLetterCaptilize,
+  firstLetterUncaptilize,
+  groupBy,
+  isEven,
+  isOdd,
+  lengthOfString,
+  longestString,
+  max,
+  min,
+  multiply,
+  onlyVowels,
+  reverseString,
+  shortestString,
+  sqrt,
+  sum,
+} from "./generic_function";
 
 //------------------------Q1------------------------
 
@@ -221,10 +83,6 @@ console.log(sumOfSquares(numbers1));
 
 //------------------------Q8------------------------
 
-const isOdd = function (num) {
-  return (num & 1) === 1;
-};
-
 const sumOfOddNumbers = function (numbers) {
   return numbers.filter(isOdd).reduce(sum, 0);
 };
@@ -241,10 +99,6 @@ console.log(countNegativeNumbers(mixedNumbers));
 
 //------------------------Q10------------------------
 
-const isEven = function (num) {
-  return (num & 1) === 0;
-};
-
 const findSumOfEvenSquares = function (numbers) {
   return numbers.filter(isEven).map(sqrt).reduce(sum, 0);
 };
@@ -253,12 +107,8 @@ console.log(findSumOfEvenSquares(numbers1));
 
 //------------------------Q11------------------------
 
-const concat = function (str1, str2) {
-  return str1 + str2;
-};
-
 const concatenateWords = function (words) {
-  return words.reduce(concat, "");
+  return words.reduce(concatStr, "");
 };
 
 const words1 = ["hello", "world"];
@@ -278,10 +128,6 @@ const words = ["apple", "banana", "cherry", "kiwi", "ab", "a"];
 console.log(longestWord(words));
 
 //------------------------Q13------------------------
-
-const shortestString = function (str1, str2) {
-  return str1.length < str2.length ? str1 : str2;
-};
 
 const shortestWord = function (words) {
   return words.reduce(shortestString);
@@ -386,15 +232,6 @@ const uniqueNums = [1, 3, 2, 5, 1, 5, 3, 2, 4, 7, 4, 2, 3, 4];
 console.log(uniqueNumbers(uniqueNums));
 
 //------------------------Q25-------------------------
-
-const groupBy = function (list, fn) {
-  return list.reduce((o, e) => {
-    const value = o[fn(e)] || [];
-    value.push(e);
-    o[fn(e)] = value;
-    return o;
-  }, {});
-};
 
 const groupByLength = (strings) => groupBy(strings, lengthOfString);
 const groupByEvenOdd = (nums) => groupBy(nums, isEven);

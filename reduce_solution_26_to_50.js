@@ -1,166 +1,8 @@
-//---------------------Generic Function-------------------------//
+//------------------------Generic Function-------------------------
 
-const VOWELS = "aeiou";
-
-const sum = function (num1, num2) {
-  return num1 + num2;
-};
-
-const add = function (numbers) {
-  return numbers.reduce(sum, 0);
-};
-
-const multiply = function (num1, num2) {
-  return num1 * num2;
-};
-
-const product = function (numbers) {
-  return numbers.reduce(multiply, 1);
-};
-
-const sqrt = function (number) {
-  return number * number;
-};
-
-const lengthOfString = function (string) {
-  return string.length;
-};
-
-const upperCase = function (string) {
-  return string.toUpperCase();
-};
-
-const firstCharacter = function (string) {
-  return string ? string[0] : "";
-};
-
-const truthValue = function (value) {
-  return !!value;
-};
-
-const reverseString = function (string) {
-  return string.split("").reverse().join("");
-};
-
-const repeat = function (times) {
-  return function (string) {
-    return string.repeat(times);
-  };
-};
-
-const negatedBoolean = function (boolean) {
-  return !boolean;
-};
-
-const slice = function (from, to) {
-  return function (string) {
-    return string.slice(from, to);
-  };
-};
-
-const splitWith = function (char) {
-  return function (string) {
-    return string.split(char);
-  };
-};
-
-const joinWith = function (char) {
-  return function (array) {
-    return array.join(char);
-  };
-};
-
-const isAVowel = function (char) {
-  return VOWELS.includes(char.toLowerCase());
-};
-
-const onlyVowels = function (string) {
-  const volels = splitWith("")(string).filter(isAVowel);
-  return joinWith("")(volels);
-};
-
-const reverseArray = function (array) {
-  return array.reverse();
-};
-
-const compliment = function (f) {
-  return function (...arg) {
-    return !f(...arg);
-  };
-};
-
-const onlyConsonents = function (string) {
-  return string.split("").filter(compliment(isAVowel)).join("");
-};
-
-const firstLetterCaptilize = function (string) {
-  return string ? string[0].toUpperCase() + string.slice(1, string.length) : "";
-};
-
-const firstLetterUncaptilize = function (string) {
-  return string ? string[0].toLowerCase() + string.slice(1, string.length) : "";
-};
-
-const flatArray = function (array) {
-  return array.flat();
-};
-
-const wordsLengthInSentence = function (sentence) {
-  return sentence.split(" ").map(lengthOfString);
-};
-
-const sortedString = function (string) {
-  return string.split("").sort().join("");
-};
-
-const wrappedStringWith = function (braces) {
-  return function (string) {
-    return braces[0] + string + braces[1];
-  };
-};
-
-const isAbove = function (target) {
-  return function (number) {
-    return number > target;
-  };
-};
-
-const isAdult = function (person) {
-  return isAbove(18)(person.age);
-};
-
-const extractProperties = function (object) {
-  return function (key) {
-    return object[key];
-  };
-};
-
-const extract = function (...properties) {
-  return function (object) {
-    return properties.map(extractProperties(object));
-  };
-};
-
-const max = function (num1, num2) {
-  return num1 > num2 ? num1 : num2;
-};
-
-const min = function (num1, num2) {
-  return num1 < num2 ? num1 : num2;
-};
-
-const longestString = function (string, currentString) {
-  return currentString.length > string.length ? currentString : string;
-};
-
-const longestStringOf = function (strings) {
-  return strings.reduce(longestString, "");
-};
+import { areEqual, groupBy } from "./generic_function";
 
 //-------------------------------Q26-------------------------------
-const _getCount = function (obj, str) {
-  return str in obj ? { ...obj, [str]: obj[str] + 1 } : { ...obj, [str]: 1 };
-};
 
 const getCount = function (obj, str) {
   const count = (obj[str] || 0) + 1;
@@ -168,7 +10,7 @@ const getCount = function (obj, str) {
   return obj;
 };
 
-const countOccurrences = (strings) => strings.reduce(getCount, {});
+export const countOccurrences = (strings) => strings.reduce(getCount, {});
 
 const occurrenceWords = [
   "apple",
@@ -200,7 +42,7 @@ console.log(mergeObjects(objToMerge));
 
 //-------------------------------Q28-------------------------------
 
-const zip = function (keys, values) {
+export const zip = function (keys, values) {
   return keys.reduce((obj, key, i) => {
     obj[key] = values[i];
     return obj;
@@ -214,7 +56,7 @@ console.log(zip(keys, values));
 
 //-------------------------------Q29-------------------------------
 
-const invertObject = function (obj) {
+export const invertObject = function (obj) {
   const keys = Object.keys(obj);
   const values = Object.values(obj);
   return zip(values, keys);
@@ -245,19 +87,10 @@ console.log(mergeArrays(arr1, arr2));
 
 //-------------------------------Q31-------------------------------
 
-const getProperty = (key) => (obj) => obj[key];
-
-const groupBy = function (list, fn) {
-  return list.reduce((o, e) => {
-    const value = o[fn(e)] || [];
-    value.push(e);
-    o[fn(e)] = value;
-    return o;
-  }, {});
-};
+const property = (key) => (obj) => obj[key];
 
 const groupByProperty = function (objects) {
-  return groupBy(objects, getProperty("age"));
+  return groupBy(objects, property("age"));
 };
 
 const objArr = [
@@ -269,19 +102,19 @@ console.log(groupByProperty(objArr));
 
 //-------------------------------Q32-------------------------------
 
-const ascendingGroup = (a, e) => {
-  if (a.at(-1).at(-1) < e) {
-    a.at(-1).push(e);
-    return a;
+const ascendingGroup = (groups, element) => {
+  const lastGroup = groups.at(-1) || [];
+
+  if (lastGroup.at(-1) < element) {
+    lastGroup.push(element);
+    return groups;
   }
 
-  return [...a, [e]];
+  return [...groups, [element]];
 };
 
-const ascendingGroups = function (numbers) {
-  const ascending = numbers.reduce(ascendingGroup, [[]]);
-  ascending.shift();
-  return ascending;
+export const ascendingGroups = function (numbers) {
+  return numbers.reduce(ascendingGroup, []);
 };
 
 const randomNumbers = [1, 2, 3, 4, 3, 4, 5, 10, 6, 7, 8, 9];
@@ -289,10 +122,10 @@ console.log(ascendingGroups(randomNumbers));
 
 //-------------------------------Q33-------------------------------
 
-const flattenToObject = function (pairs) {
-  return pairs.reduce((o, e) => {
-    o[e[0]] = e[1];
-    return o;
+export const flattenToObject = function (pairs) {
+  return pairs.reduce((group, [key, value]) => {
+    group[key] = value;
+    return group;
   }, {});
 };
 
@@ -311,3 +144,18 @@ const longestStringInStrings = function (strings) {
 
 const listOfStrings = ["apple", "banana", "cherry", "dates"];
 console.log(longestStringInStrings(listOfStrings));
+
+//-------------------------------Q35-------------------------------
+
+const mergeIntervals = function (intervals) {
+  return intervals.reduce(mergeInterval(intervals), []);
+};
+
+const intervals = [
+  [1, 3],
+  [5, 7],
+  [6, 12],
+  [2, 4],
+];
+
+console.log(mergeIntervals(intervals));
